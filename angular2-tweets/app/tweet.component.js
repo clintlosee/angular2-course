@@ -9,15 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import {LikeComponent} from './like.component'; // TODO: need to add this
+var like_component_1 = require('./like.component');
 var TweetComponent = (function () {
     function TweetComponent() {
     }
+    TweetComponent.prototype.onLikeChange = function ($event) {
+        console.log($event);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], TweetComponent.prototype, "tweet", void 0);
     TweetComponent = __decorate([
         core_1.Component({
             selector: 'tweet',
-            template: "\n        <div class=\"media\">\n            <div class=\"media-left\">\n                <a href=\"#\">\n                    <img class=\"media-object\" src=\"http://lorempixel.com/100/100/people\" alt=\"Profile Pic\">\n                </a>\n            </div>\n            <div class=\"media-body\">\n                <h4 class=\"media-heading\">Media heading</h4>\n                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>\n                <like></like>\n            </div>\n        </div>\n    ",
-            styles: ["\n        .media-object {\n            // width: 100px;\n            // height: 100px;\n        }\n    "]
+            template: "\n        <div class=\"media col-sm-10\">\n            <div class=\"media-left\">\n                <a href=\"#\">\n                    <img class=\"media-object\" src=\"{{ tweet.photoUrl }}\" alt=\"{{ tweet.photoAlt }}\">\n                </a>\n            </div>\n            <div class=\"media-body\">\n                <h4 class=\"media-heading\">\n                    {{ tweet.headingTitle }} \n                    <span class=\"handle\">{{ tweet.twitterId }}</span>\n                </h4>\n                <p>{{ tweet.tweet }}</p>\n                <div>\n                    <like\n                        [totalLikes]=\"tweet.totalLikes\" \n                        [liked]=\"tweet.liked\"\n                        (change)=\"onLikeChange($event)\"></like>\n                </div>\n            </div>\n        </div>\n    ",
+            directives: [like_component_1.LikeComponent],
+            styles: ["\n        .media {\n            margin-bottom: 20px;\n        }\n        .media-object {\n            border-radius: 5px;\n        }\n        .handle {\n            color: #ccc;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [])
     ], TweetComponent);

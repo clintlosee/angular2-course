@@ -1,12 +1,11 @@
 import {Component} from '@angular/core';
-import {TweetComponent} from './tweet.component';
+import {TweetsComponent} from './tweets.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <h1>Tweets</h1>
-        <tweet></tweet>
+        <tweets></tweets>
     `,
-    directives: [TweetComponent]
+    directives: [TweetsComponent]
 })
 export class AppComponent { }
