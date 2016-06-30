@@ -1,16 +1,11 @@
 import {Component} from '@angular/core';
-import {PanelComponent} from './panel.component';
+import {SubscribeFormComponent} from './subscribe-form.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <panel title="Panel Title">
-            Panel content goes here
-        </panel>
-        <panel title="Panel Title 2">
-            Panel 2 content goes here
-        </panel>
+        <subscribe-form></subscribe-form>
     `,
-    directives: [PanelComponent]
+    directives: [SubscribeFormComponent]
 })
 export class AppComponent { }

@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var subscribe_form_component_1 = require('./subscribe-form.component');
-var AppComponent = (function () {
-    function AppComponent() {
+var SubscribeFormComponent = (function () {
+    function SubscribeFormComponent() {
     }
-    AppComponent = __decorate([
+    SubscribeFormComponent.prototype.onSubmit = function (form) {
+        console.log(form);
+    };
+    SubscribeFormComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n        <subscribe-form></subscribe-form>\n    ",
-            directives: [subscribe_form_component_1.SubscribeFormComponent]
+            selector: 'subscribe-form',
+            templateUrl: 'app/subscribe-form.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SubscribeFormComponent);
+    return SubscribeFormComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SubscribeFormComponent = SubscribeFormComponent;
+//# sourceMappingURL=subscribe-form.component.js.map

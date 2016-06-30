@@ -1,0 +1,66 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+            ngControl="name"
+            #name="ngForm"
+            type="text" 
+            class="form-control"
+            id="name"
+            minlength="3"
+            required>
+        <div *ngIf="name.touched && name.errors">
+            <div 
+                *ngIf="name.errors.required"
+                class="alert alert-danger">
+                Name is required
+            </div>
+            <div 
+                *ngIf="name.errors.minlength"
+                class="alert alert-danger">
+                Name must be {{ name.errors.minlength.requiredLength }} or more characters
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            ngControl="email"
+            #email="ngForm"
+            type="text" 
+            class="form-control"
+            required>
+        <div *ngIf="email.touched && email.errors">
+            <div 
+                *ngIf="email.errors.required"
+                class="alert alert-danger">
+                Email address is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="frequency">Frequency of Emails</label>
+        <select
+            ngControl="frequency"
+            #frequency="ngForm"
+            class="form-control"
+            name="frequency" 
+            id="frequency" 
+            required>
+            <option value="daily">daily</option>
+            <option value="weekly">weekly</option>
+            <option value="monthly">monthly</option>
+        </select>
+        <div *ngIf="frequency.touched && frequency.errors">
+            <div 
+                *ngIf="frequency.errors.required"
+                class="alert alert-danger">
+                Please select an option
+            </div>
+        </div>
+    </div>
+    <button 
+        class="btn btn-primary" 
+        type="submit"
+        [disabled]="!f.valid">Submit</button>
+</form>
