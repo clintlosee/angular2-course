@@ -38,20 +38,7 @@ export class ProfileComponent implements OnInit {
     constructor(private _profileService: ProfileService) {
     }
 
-    ngOnInit() {
-        // this._profileService.getUser()
-        //     .subscribe(profile => {
-        //         this.isLoading = false;
-        //         this.profile = profile;
-        //         // console.log(profile);
-        //     });
-        // this._profileService.getFollowers()
-        //     .subscribe(followers => {
-        //         this.isLoading = false;
-        //         this.followers = followers;
-        //         // console.log(followers);
-        //     })
-        
+    ngOnInit() {        
         Observable.forkJoin(
             this._profileService.getUser(),
             this._profileService.getFollowers()
@@ -63,9 +50,6 @@ export class ProfileComponent implements OnInit {
             null,
             () => this.isLoading = false
         );
-
-        // var observable = Observable.forkJoin(this.profile, this.followers);
-        // console.log(observable);
     }
 
 }
